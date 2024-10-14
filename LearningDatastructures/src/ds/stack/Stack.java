@@ -1,17 +1,18 @@
 package LearningDatastructures.src.ds.stack;
 
-public class Stack {
+public class Stack <T> {
     private int maxSize;
-    private long[] stackArray;
+    private T[] stackArray;
     private int top; //will represent the index position of the last item placed on the stack
 
     public Stack(int size) {
         this.maxSize = size;
-        this.stackArray = new long[maxSize];
+        // see: https://stackoverflow.com/questions/18581002/how-to-create-a-generic-array
+        this.stackArray = (T[]) new Object[maxSize];
         this.top = -1;
     }
 
-    public void push(long j){
+    public void push(T j){
         if(!this.isFull()){
             top++;
             stackArray[top] = j;
@@ -21,21 +22,21 @@ public class Stack {
 
     }
 
-    public long pop(){
+    public T pop(){
         // doesn't really remove anything from the array, just uses the index as a
         // pointer
-        if(!this.isEmpty()){
+        //if(!this.isEmpty()){
             int old_top = top;
             top--;
             return stackArray[old_top];
-        } else {
-            System.out.println("Stack is empty, unable to pop!");
-            return -1;
-        }
+        //} else {
+        //    System.out.println("Stack is empty, unable to pop!");
+         //   return new T();
+        //}
     }
 
     // returns top of the stack / last thing that was added
-    public long peak(){
+    public T peak(){
         return stackArray[top];
     }
 

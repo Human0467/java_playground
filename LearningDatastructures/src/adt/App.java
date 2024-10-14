@@ -10,4 +10,8 @@ public class App {
 
         System.out.println(myCounter.getCurrentValue());
     }
+
+    public static String reverseString(String str){
+        return str;
+    }
 }

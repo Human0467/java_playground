@@ -1,5 +1,5 @@
 package LearningDatastructures.src.ds.stack;
 
-public class StackFullException {
-
+public class StackFullException extends Throwable{
+    
 }
