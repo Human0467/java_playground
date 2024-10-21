@@ -78,12 +78,10 @@ public class DoublyLinkedList<T> {
             last = newNode;
         } else {
             newNode.next = current.next;
-            current.next.previous = newNode;
-            
+            current.next.previous = newNode;       
         }
         newNode.previous = current;
         current.next = newNode;
-        
         return true;
     }
 
@@ -95,15 +93,39 @@ public class DoublyLinkedList<T> {
                 return null;
             }
         }
-        if(current == last){
-            current.previous.next = null;
-            last = current.previous;
-        } else if (current == first){
-            
+        if(current == first){
+            first = current.next;
+        } else {
+            current.previous.next = current.next;
         }
-        current.previous.next = current.next;
-        current.next.previous = current.previous;
+
+        if(current == last){
+            last = current.previous;
+        } else {
+            current.next.previous = current.previous;
+        } 
+        
         return current;
+    }
+
+    public void displayForward(){
+        System.out.println("List (first --> last): ");
+        Node<T> current = first;
+        while(current != null){
+            current.displayNode();
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public void displayBackward(){
+        System.out.println("List (last --> first): ");
+        Node<T> current = last;
+        while(current != null){
+            current.displayNode();
+            current = current.previous;
+        }
+        System.out.println();
     }
 
 }
