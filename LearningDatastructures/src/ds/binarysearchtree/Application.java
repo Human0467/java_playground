@@ -13,8 +13,11 @@ public class Application {
     tree.insert(0, "zero");
     tree.insert(20, "twenty");
 
-    System.out.println(tree.findMax().key);
-    System.out.println(tree.findMin().key);
+    // System.out.println(tree.findMax().key);
+    // System.out.println(tree.findMin().key);
 
+    tree.printValues();
+
+    
     }
 }
